@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Market</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'main.css' %}">
+    </head>
+    <body>
+        <div class="create_btn">
+            <a href="create/">Créer produit</a>
+        </div>
+        <div class="products">
+            {% for product in products %}
+            <a href="{{ product.id }}">
+            <div class="card">
+                <p class="title">{{ product.name }}</p>
+                <img src="{{ product.imageURL }}" />
+                <div class="info">
+                    <p>Stock : {{ product.stock }}</p>
+                    <p>Prix : {{ product.price }} €</p>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+    </body>
+</html>
